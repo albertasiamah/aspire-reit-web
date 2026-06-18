@@ -1,0 +1,259 @@
+/* ============================================================
+   ASPIRE REIT — Global CSS
+   Design tokens → typography → resets → utilities
+   ============================================================ */
+
+/* --- Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400;1,9..40,500&family=Lora:ital,wght@1,500&display=swap');
+
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+:root {
+  /* Brand greens */
+  --green-50:  #f0f5f4;
+  --green-100: #d6e5e3;
+  --green-200: #aecbc7;
+  --green-300: #80aca7;
+  --green-400: #558d87;
+  --green-500: #3a726b;
+  --green-600: #293f3d;   /* Brand Primary */
+  --green-700: #213432;
+  --green-800: #182928;
+  --green-900: #101e1d;
+
+  /* Brand golds */
+  --gold-100:  #fdf5e6;
+  --gold-300:  #e8ca8c;
+  --gold-400:  #d4aa6a;
+  --gold-500:  #c9a96c;   /* Brand Accent */
+  --gold-600:  #b8933a;
+  --gold-700:  #9a7a2e;
+
+  /* Cream */
+  --cream-500: #f0ebcc;   /* Brand Cream */
+
+  /* Ink (text) */
+  --ink-900: #111827;
+  --ink-700: #374151;
+  --ink-600: #4b5563;
+  --ink-500: #6b7280;
+  --ink-400: #9ca3af;
+  --ink-300: #d1d5db;
+
+  /* Surfaces */
+  --white:           #ffffff;
+  --paper:           #fafaf8;
+  --surface-sunken:  #f4f1eb;
+
+  /* Positive */
+  --positive-100: #d1fae5;
+  --positive-600: #059669;
+
+  /* Borders */
+  --border-default:  #e5e7eb;
+  --border-on-dark:  rgba(255, 255, 255, 0.10);
+
+  /* Typography */
+  --font-display: 'DM Sans', system-ui, -apple-system, sans-serif;
+  --font-body:    'DM Sans', system-ui, -apple-system, sans-serif;
+  --font-serif:   'Lora', Georgia, serif;
+
+  /* Layout */
+  --container-max: 1160px;
+
+  /* Radii */
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   14px;
+  --radius-xl:   20px;
+  --radius-2xl:  28px;
+  --radius-pill: 9999px;
+
+  /* Shadows */
+  --shadow-sm:   0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-md:   0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.06);
+  --shadow-lg:   0 10px 15px rgba(0,0,0,0.08), 0 4px 6px rgba(0,0,0,0.05);
+  --shadow-xl:   0 20px 25px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.04);
+  --shadow-gold: 0 4px 14px rgba(201,169,108,0.30);
+
+  /* Animation */
+  --dur-fast: 100ms;
+  --dur-base: 180ms;
+  --dur-slow: 320ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Focus ring */
+  --ring-focus: 0 0 0 3px rgba(201,169,108,0.35);
+
+  scroll-behavior: smooth;
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink-900);
+  background: var(--green-600);
+}
+
+img, video { max-width: 100%; display: block; }
+
+a { color: inherit; text-decoration: none; }
+a:hover { text-decoration: none; }
+
+h1, h2, h3, h4, h5, h6 { margin: 0; font-family: var(--font-display); }
+
+p { margin: 0; }
+
+button { cursor: pointer; font-family: var(--font-body); }
+
+:focus-visible { outline: 2px solid var(--gold-500); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  :root { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+
+/* ============================================================
+   LAYOUT UTILITIES
+   ============================================================ */
+.wrap {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.sec-pad {
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+
+/* ============================================================
+   TYPOGRAPHY UTILITIES
+   ============================================================ */
+.eyebrow {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  padding: 14px 26px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    background var(--dur-base) var(--ease-out),
+    border-color var(--dur-base) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+  white-space: nowrap;
+}
+.btn:active { transform: translateY(1px); }
+.btn:hover { text-decoration: none; }
+
+/* Accent — gold on dark green */
+.btn-accent {
+  background: var(--gold-500);
+  color: var(--green-800);
+  box-shadow: var(--shadow-gold);
+  border-color: transparent;
+}
+.btn-accent:hover { background: var(--gold-600); }
+
+/* Primary — green on cream */
+.btn-primary {
+  background: var(--green-600);
+  color: var(--cream-500);
+  box-shadow: var(--shadow-sm);
+}
+.btn-primary:hover { background: var(--green-700); }
+
+/* Ghost light — transparent with light border */
+.btn-ghost-light {
+  background: transparent;
+  color: var(--cream-500);
+  border-color: var(--green-300);
+}
+.btn-ghost-light:hover { background: rgba(251,239,208,0.08); }
+
+/* Ghost dark — transparent with dark border */
+.btn-ghost-dark {
+  background: transparent;
+  color: var(--ink-700);
+  border-color: var(--border-default);
+}
+.btn-ghost-dark:hover { background: var(--surface-sunken); }
+
+/* Sizes */
+.btn-sm { padding: 9px 16px; font-size: 13px; }
+.btn-lg { padding: 16px 32px; font-size: 16px; }
+
+/* ============================================================
+   CTA BOX (shared across pages)
+   ============================================================ */
+.ctaBox {
+  background: var(--green-600);
+  border-radius: var(--radius-2xl);
+  padding: 64px;
+  text-align: center;
+}
+.ctaBox .rule {
+  width: 48px;
+  height: 2px;
+  background: var(--gold-500);
+  margin: 0 auto 28px;
+}
+.ctaBox .quote {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-style: italic;
+  font-size: 40px;
+  line-height: 1.2;
+  color: var(--cream-500);
+  max-width: 720px;
+  margin: 0 auto 32px;
+  letter-spacing: -0.01em;
+}
+
+/* ============================================================
+   SECTION BACKGROUNDS
+   ============================================================ */
+.bg-dark   { background: var(--green-600); }
+.bg-light  { background: var(--paper); }
+.bg-sunken { background: var(--surface-sunken); }
+.bg-darker { background: var(--green-800); }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 900px) {
+  .wrap { padding-left: 24px; padding-right: 24px; }
+  .sec-pad { padding-top: 64px; padding-bottom: 64px; }
+  .ctaBox { padding: 44px 24px; }
+  .ctaBox .quote { font-size: 28px; }
+}

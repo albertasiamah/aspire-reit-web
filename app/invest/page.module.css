@@ -1,0 +1,96 @@
+/* ===================== INVEST ===================== */
+.pageHero { background: var(--green-600); }
+.heroInner { padding-top: 56px; padding-bottom: 72px; max-width: 720px; }
+.eyebrow { color: var(--gold-400); display: block; margin-bottom: 16px; }
+
+.heroInner h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+  color: var(--cream-500);
+  margin: 0 0 18px;
+  text-wrap: balance;
+}
+.heroInner p { font-size: 18px; line-height: 1.6; color: var(--green-100); margin: 0; }
+
+/* Steps */
+.secHead { max-width: 620px; margin-bottom: 48px; }
+.secHead span { color: var(--gold-700); display: block; margin-bottom: 16px; }
+.secHead h2 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 40px;
+  letter-spacing: -0.02em;
+  color: var(--ink-900);
+  margin: 0;
+}
+
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 64px; }
+
+.step {
+  background: var(--white);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: 30px 28px;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+.step::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--gold-500);
+}
+
+.stepNum {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 36px;
+  color: var(--green-100);
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+  line-height: 1;
+}
+
+.step h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 19px;
+  color: var(--ink-900);
+  margin: 0 0 8px;
+}
+.step p { font-size: 15px; line-height: 1.6; color: var(--ink-600); margin: 0; }
+
+/* Key facts */
+.facts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--border-default);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.cell { background: var(--white); padding: 24px; }
+.k {
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+  margin-bottom: 6px;
+}
+.v { font-family: var(--font-display); font-weight: 700; font-size: 16px; color: var(--ink-900); }
+
+@media (max-width: 900px) {
+  .heroInner { padding-top: 32px; padding-bottom: 48px; }
+  .heroInner h1 { font-size: 34px; }
+  .steps { grid-template-columns: 1fr; }
+  .secHead h2 { font-size: 30px; }
+  .facts { grid-template-columns: 1fr; }
+}
