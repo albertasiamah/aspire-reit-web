@@ -1,18 +1,13 @@
-'use client'
-
+import type { Metadata } from 'next'
 import { Home, TrendingUp, ShieldCheck } from 'lucide-react'
-import { useModal } from '@/components/ModalContext'
 import CTABox from '@/components/CTABox/CTABox'
 import s from './page.module.css'
 
-export const metadata = { title: 'Why Aspire — Aspire REIT' }
+export const metadata: Metadata = { title: 'Why Aspire — Aspire REIT' }
 
 export default function WhyAspirePage() {
-  const openModal = useModal()
-
   return (
     <>
-      {/* Page hero */}
       <section className={s.pageHero}>
         <div className={`wrap ${s.heroInner}`}>
           <span className={`eyebrow ${s.eyebrow}`}>Why Aspire</span>
@@ -25,14 +20,12 @@ export default function WhyAspirePage() {
         </div>
       </section>
 
-      {/* Pillars */}
       <section className="bg-light">
         <div className="wrap sec-pad">
           <div className={s.secHead}>
             <span className="eyebrow">Our approach</span>
             <h2>Three things we get right</h2>
           </div>
-
           <div className={s.pillars}>
             <article className={s.pillar}>
               <div className={s.ico}><Home size={22} /></div>
@@ -50,7 +43,6 @@ export default function WhyAspirePage() {
               <p>Professionally managed and SEC-registered in Ghana, aligning the interests of homeowners and investors through clear reporting and disciplined governance.</p>
             </article>
           </div>
-
           <div className={s.statsRow}>
             <div className={s.statCard}>
               <div className={s.num}>9%+</div>
@@ -68,10 +60,9 @@ export default function WhyAspirePage() {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="bg-light">
         <div className="wrap" style={{ paddingBottom: '96px' }}>
-          <CTABox onOpenModal={openModal} />
+          <CTABox />
         </div>
       </section>
     </>

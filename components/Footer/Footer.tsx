@@ -1,12 +1,13 @@
+'use client'
+
 import Link from 'next/link'
 import Image from 'next/image'
+import { useModal } from '@/components/ModalContext'
 import styles from './Footer.module.css'
 
-interface FooterProps {
-  onOpenModal: () => void
-}
+export default function Footer() {
+  const openModal = useModal()
 
-export default function Footer({ onOpenModal }: FooterProps) {
   return (
     <footer className={styles.footer}>
       <div className="wrap">
@@ -32,8 +33,8 @@ export default function Footer({ onOpenModal }: FooterProps) {
               <h4>Invest</h4>
               <Link href="/invest">How it works</Link>
               <button
-                onClick={onOpenModal}
-                style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer', font: 'inherit', color: 'inherit', display: 'block', marginBottom: '10px', fontSize: '14px', color: 'var(--green-100)', textAlign: 'left' }}
+                onClick={openModal}
+                style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer', font: 'inherit', color: 'inherit', display: 'block', marginBottom: '10px', fontSize: '14px', textAlign: 'left' }}
               >
                 Join the waitlist
               </button>

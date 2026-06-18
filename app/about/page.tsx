@@ -1,89 +1,78 @@
-'use client'
-
+import type { Metadata } from 'next'
 import { User, Info } from 'lucide-react'
-import { useModal } from '@/components/ModalContext'
 import CTABox from '@/components/CTABox/CTABox'
 import s from './page.module.css'
 
-const board = [
-  { role: 'Independent Non-Executive Chair' },
-  { role: 'Non-Executive Director' },
-  { role: 'Non-Executive Director' },
-  { role: 'Non-Executive Director · Audit & Risk' },
-  { role: 'Non-Executive Director' },
-]
-
-const management = [
-  { role: 'Chief Executive Officer' },
-  { role: 'Chief Financial Officer' },
-  { role: 'Head of Development' },
-  { role: 'Head of Investor Relations' },
-]
+export const metadata: Metadata = { title: 'About — Aspire REIT' }
 
 export default function AboutPage() {
-  const openModal = useModal()
+  const board = [
+    { name: 'Board Member', role: 'Chairman' },
+    { name: 'Board Member', role: 'Non-Executive Director' },
+    { name: 'Board Member', role: 'Non-Executive Director' },
+    { name: 'Board Member', role: 'Non-Executive Director' },
+    { name: 'Board Member', role: 'Independent Director' },
+  ]
+  const exec = [
+    { name: 'Executive', role: 'Chief Executive Officer' },
+    { name: 'Executive', role: 'Chief Investment Officer' },
+    { name: 'Executive', role: 'Chief Financial Officer' },
+    { name: 'Executive', role: 'Head of Operations' },
+  ]
 
   return (
     <>
-      {/* Page hero */}
-      <section className={s.aboutHero}>
+      <section className={s.pageHero}>
         <div className={`wrap ${s.heroInner}`}>
-          <span className={`eyebrow ${s.eyebrow}`}>About Aspire</span>
-          <h1>The people behind Aspire</h1>
+          <span className={`eyebrow ${s.eyebrow}`}>About</span>
+          <h1>The team behind Aspire</h1>
           <p>
-            Aspire is governed by an experienced board and run by a management team that has delivered
-            quality, affordable homes across Ghana. Together they align the interests of homeowners
-            and investors alike.
+            10th Capital Investments manages Aspire REIT on behalf of investors. Our team brings
+            together expertise in real estate development, fund management, and Ghanaian housing markets.
           </p>
         </div>
       </section>
 
-      {/* Team */}
       <section className="bg-light">
         <div className="wrap sec-pad">
+          <div className={s.secHead}>
+            <span className="eyebrow">Governance</span>
+            <h2>Board of Directors</h2>
+          </div>
+          <div className={s.teamGrid}>
+            {board.map((m, i) => (
+              <article key={i} className={s.memberCard}>
+                <div className={s.avatar}><User size={32} /></div>
+                <h3>{m.name}</h3>
+                <p>{m.role}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className={s.secHead} style={{ marginTop: '64px' }}>
+            <span className="eyebrow">Management</span>
+            <h2>Executive Team</h2>
+          </div>
+          <div className={s.teamGrid}>
+            {exec.map((m, i) => (
+              <article key={i} className={s.memberCard}>
+                <div className={s.avatar}><User size={32} /></div>
+                <h3>{m.name}</h3>
+                <p>{m.role}</p>
+              </article>
+            ))}
+          </div>
+
           <div className={s.editNote}>
-            <Info size={16} style={{ color: 'var(--gold-700)', flexShrink: 0 }} />
-            Placeholder names &amp; avatars — send headshots and final names and we&apos;ll drop them in.
-          </div>
-
-          <div className={s.teamBlock}>
-            <div className={s.teamHead}>
-              <h2>Board of Directors</h2>
-              <span className={s.count}>{board.length} members</span>
-            </div>
-            <div className={s.teamGrid}>
-              {board.map((m, i) => (
-                <article key={i} className={s.member}>
-                  <div className={s.avatar}><User size={38} /></div>
-                  <div className={`${s.name} ${s.namePlaceholder}`}>Name to confirm</div>
-                  <div className={s.role}>{m.role}</div>
-                </article>
-              ))}
-            </div>
-          </div>
-
-          <div className={s.teamBlock}>
-            <div className={s.teamHead}>
-              <h2>Executive Management</h2>
-              <span className={s.count}>{management.length} members</span>
-            </div>
-            <div className={s.teamGrid}>
-              {management.map((m, i) => (
-                <article key={i} className={s.member}>
-                  <div className={s.avatar}><User size={38} /></div>
-                  <div className={`${s.name} ${s.namePlaceholder}`}>Name to confirm</div>
-                  <div className={s.role}>{m.role}</div>
-                </article>
-              ))}
-            </div>
+            <Info size={16} />
+            <span>Team profiles coming soon — contact us at info@aspirereit.fund</span>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
       <section className="bg-light">
         <div className="wrap" style={{ paddingBottom: '96px' }}>
-          <CTABox onOpenModal={openModal} />
+          <CTABox />
         </div>
       </section>
     </>

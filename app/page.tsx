@@ -1,13 +1,13 @@
-'use client'
-
 import Image from 'next/image'
-import { useModal } from '@/components/ModalContext'
+import type { Metadata } from 'next'
 import CTABox from '@/components/CTABox/CTABox'
 import s from './page.module.css'
 
-export default function HomePage() {
-  const openModal = useModal()
+export const metadata: Metadata = {
+  title: 'Aspire REIT — Quality homes. Real returns.',
+}
 
+export default function HomePage() {
   return (
     <>
       {/* Hero */}
@@ -18,56 +18,60 @@ export default function HomePage() {
             <h1>Quality homes for Ghanaians. Real returns for investors.</h1>
             <p className={s.lead}>
               Aspire is a residential real estate investment trust building well-made, affordable homes
-              across Ghana — and turning the rental income they produce into durable, inflation-beating returns.
+              in Accra — and turning rental income into durable returns for investors.
             </p>
-            <div className={s.ctaRow}>
-              <button className="btn btn-accent" onClick={openModal}>Join the waitlist</button>
-              <a className="btn btn-ghost-light" href="/aspire-greens">Explore Aspire Greens</a>
+            <div className={s.heroCtas}>
+              <a href="/invest" className="btn btn-accent btn-lg">How to invest</a>
+              <a href="/why-aspire" className="btn btn-ghost-light btn-lg">Why Aspire</a>
             </div>
           </div>
 
-          <div className={s.heroFigure}>
+          <figure className={s.heroFig}>
             <Image
               src="/assets/aspire-property-301.jpg"
-              alt="Aspire Greens residential terraces in Achimota, Accra"
+              alt="Aspire Greens — Achimota"
               fill
               style={{ objectFit: 'cover' }}
               priority
             />
-            <div className={s.cap}>
-              <div className={s.capK}>Featured development</div>
-              <div className={s.capV}>Aspire Greens, Achimota</div>
+            <div className={s.figCap}>
+              <div className={s.capInner}>
+                <span className={s.capLabel}>Aspire Greens · Phase 1</span>
+                <span className={s.capSub}>Achimota, Accra</span>
+              </div>
+            </div>
+          </figure>
+        </div>
+      </section>
+
+      {/* Trust band */}
+      <section className={`${s.trustBand} bg-dark`}>
+        <div className="wrap">
+          <div className={s.stats}>
+            <div className={s.stat}>
+              <span className={s.num}>9%+</span>
+              <span className={s.lab}>Real yield to investors</span>
+            </div>
+            <div className={s.stat}>
+              <span className={s.num}>100%</span>
+              <span className={s.lab}>Phase 1 fully subscribed</span>
+            </div>
+            <div className={s.stat}>
+              <span className={s.num}>2–4 bed</span>
+              <span className={s.lab}>Family-sized homes</span>
+            </div>
+            <div className={s.stat}>
+              <span className={s.num}>Achimota</span>
+              <span className={s.lab}>Phase 1 location</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Trust band */}
-      <div className={s.trust}>
-        <div className={`wrap ${s.trustGrid}`}>
-          <div className={s.stat}>
-            <div className={s.num}>9%+</div>
-            <div className={s.lab}>Real yield to investors</div>
-          </div>
-          <div className={s.stat}>
-            <div className={s.num}>100%</div>
-            <div className={s.lab}>Phase 1 homes sold</div>
-          </div>
-          <div className={s.stat}>
-            <div className={s.num}>2–4 bed</div>
-            <div className={s.lab}>Home types delivered</div>
-          </div>
-          <div className={s.stat}>
-            <div className={s.num}>Achimota</div>
-            <div className={s.lab}>Accra, Ghana</div>
-          </div>
-        </div>
-      </div>
-
       {/* CTA */}
       <section className="bg-light">
-        <div className="wrap sec-pad">
-          <CTABox onOpenModal={openModal} />
+        <div className="wrap" style={{ paddingBottom: '96px' }}>
+          <CTABox />
         </div>
       </section>
     </>

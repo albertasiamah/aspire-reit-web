@@ -4,13 +4,11 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
+import { useModal } from '@/components/ModalContext'
 import styles from './Header.module.css'
 
-interface HeaderProps {
-  onOpenModal: () => void
-}
-
-export default function Header({ onOpenModal }: HeaderProps) {
+export default function Header() {
+  const openModal = useModal()
   const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
 
@@ -45,7 +43,7 @@ export default function Header({ onOpenModal }: HeaderProps) {
           <Link href="/invest" className={isActive('/invest') ? styles.active : ''}>Invest</Link>
         </nav>
 
-        <button className="btn btn-accent btn-sm" onClick={onOpenModal}>
+        <button className="btn btn-accent btn-sm" onClick={openModal}>
           Join waitlist
         </button>
       </div>
