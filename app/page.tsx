@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import type { Metadata } from 'next'
-import CTABox from '@/components/CTABox/CTABox'
+import OpenModalButton from '@/components/OpenModalButton'
 import s from './page.module.css'
 
 export const metadata: Metadata = {
@@ -22,7 +22,7 @@ export default function HomePage() {
               across Ghana — and turning the rental income they produce into durable, inflation-beating returns.
             </p>
             <div className={s.ctaRow}>
-              <a href="/invest" className="btn btn-accent">Join the waitlist</a>
+              <OpenModalButton className="btn btn-accent" label="Join the waitlist" showIcon />
               <a href="/aspire-greens" className="btn btn-ghost-light">Explore Aspire Greens</a>
             </div>
           </div>
@@ -64,13 +64,6 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-
-      {/* CTA */}
-      <section className="bg-light">
-        <div className="wrap" style={{ paddingBottom: '96px', paddingTop: '96px' }}>
-          <CTABox />
-        </div>
-      </section>
     </>
   )
 }
