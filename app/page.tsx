@@ -4,7 +4,8 @@ import CTABox from '@/components/CTABox/CTABox'
 import s from './page.module.css'
 
 export const metadata: Metadata = {
-  title: 'Aspire REIT — Quality homes. Real returns.',
+  title: 'Aspire REIT — Quality homes for Ghanaians, real returns for investors',
+  description: 'Aspire is a residential real estate investment trust building affordable homes across Ghana — and durable, inflation-beating income for investors.',
 }
 
 export default function HomePage() {
@@ -18,59 +19,55 @@ export default function HomePage() {
             <h1>Quality homes for Ghanaians. Real returns for investors.</h1>
             <p className={s.lead}>
               Aspire is a residential real estate investment trust building well-made, affordable homes
-              in Accra — and turning rental income into durable returns for investors.
+              across Ghana — and turning the rental income they produce into durable, inflation-beating returns.
             </p>
-            <div className={s.heroCtas}>
-              <a href="/invest" className="btn btn-accent btn-lg">How to invest</a>
-              <a href="/why-aspire" className="btn btn-ghost-light btn-lg">Why Aspire</a>
+            <div className={s.ctaRow}>
+              <a href="/invest" className="btn btn-accent">Join the waitlist</a>
+              <a href="/aspire-greens" className="btn btn-ghost-light">Explore Aspire Greens</a>
             </div>
           </div>
 
-          <figure className={s.heroFig}>
+          <figure className={s.heroFigure}>
             <Image
               src="/assets/aspire-property-301.jpg"
-              alt="Aspire Greens — Achimota"
+              alt="Aspire Greens residential terraces in Achimota, Accra"
               fill
               style={{ objectFit: 'cover' }}
               priority
             />
-            <div className={s.figCap}>
-              <div className={s.capInner}>
-                <span className={s.capLabel}>Aspire Greens · Phase 1</span>
-                <span className={s.capSub}>Achimota, Accra</span>
-              </div>
+            <div className={s.cap}>
+              <div className={s.capK}>Featured development</div>
+              <div className={s.capV}>Aspire Greens, Achimota</div>
             </div>
           </figure>
         </div>
       </section>
 
       {/* Trust band */}
-      <section className={`${s.trustBand} bg-dark`}>
-        <div className="wrap">
-          <div className={s.stats}>
-            <div className={s.stat}>
-              <span className={s.num}>9%+</span>
-              <span className={s.lab}>Real yield to investors</span>
-            </div>
-            <div className={s.stat}>
-              <span className={s.num}>100%</span>
-              <span className={s.lab}>Phase 1 fully subscribed</span>
-            </div>
-            <div className={s.stat}>
-              <span className={s.num}>2–4 bed</span>
-              <span className={s.lab}>Family-sized homes</span>
-            </div>
-            <div className={s.stat}>
-              <span className={s.num}>Achimota</span>
-              <span className={s.lab}>Phase 1 location</span>
-            </div>
+      <div className={s.trust}>
+        <div className={`wrap ${s.trustGrid}`}>
+          <div className={s.stat}>
+            <div className={s.num}>9%+</div>
+            <div className={s.lab}>Real yield to investors</div>
+          </div>
+          <div className={s.stat}>
+            <div className={s.num}>100%</div>
+            <div className={s.lab}>Phase 1 homes sold</div>
+          </div>
+          <div className={s.stat}>
+            <div className={s.num}>2–4 bed</div>
+            <div className={s.lab}>Home types delivered</div>
+          </div>
+          <div className={s.stat}>
+            <div className={s.num}>Achimota</div>
+            <div className={s.lab}>Accra, Ghana</div>
           </div>
         </div>
-      </section>
+      </div>
 
       {/* CTA */}
       <section className="bg-light">
-        <div className="wrap" style={{ paddingBottom: '96px' }}>
+        <div className="wrap" style={{ paddingBottom: '96px', paddingTop: '96px' }}>
           <CTABox />
         </div>
       </section>
