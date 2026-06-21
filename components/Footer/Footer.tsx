@@ -32,12 +32,7 @@ export default function Footer() {
             <div className={styles.col}>
               <h4>Invest</h4>
               <Link href="/invest">How it works</Link>
-              <button
-                onClick={openModal}
-                style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer', font: 'inherit', color: 'inherit', display: 'block', marginBottom: '10px', fontSize: '14px', textAlign: 'left' }}
-              >
-                Join the waitlist
-              </button>
+              <button onClick={openModal}>Join the waitlist</button>
               <Link href="mailto:info@aspirereit.fund">Contact</Link>
             </div>
           </div>
